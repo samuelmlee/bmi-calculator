@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
     stages {
         stage('Install & Test') {
@@ -36,7 +36,6 @@ pipeline {
         }
 
         stage('Static Code Analysis') {
-            agent any
 
             steps {
                 script {
@@ -53,7 +52,6 @@ pipeline {
         }
 
         stage('Quality Gate') {
-            agent any
 
             steps {
                 timeout(time: 1, unit: 'HOURS') {
